@@ -478,11 +478,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.target.classList.contains('book')) {
             if (booked_seats.length != 0) {
                 if (isLoggedIn) {
-                    window.location.href = "./pages/booking.html";
+                    window.location.href = "./booking.html";
                 }
                 else {
                     alert('please login')
-                    window.location.href = "./pages/login.html";
+                    window.location.href = "./login.html";
                 }
             }
             else {
