@@ -42,7 +42,7 @@ let addUser = async (data) => {
         const response = await axios.post(`${url}/register`, data)
         console.log(response.data)
 
-        window.location.href = '/pages/login.html'
+        window.location.href = './pages/login.html'
 
     } catch (error) {
         console.log("error: ", error.message)
@@ -112,7 +112,7 @@ let logout = () => {
     logout_btn_sm.style.display = 'none'
     isLoggedIn = false
     window.localStorage.removeItem('ticketDetails')
-    window.location.href = "/pages/login.html";
+    window.location.href = "./pages/login.html";
 
 }
 
@@ -188,7 +188,7 @@ const submitSearch = () => {
     }
 
     localStorage.setItem("search_data", JSON.stringify({ from, to, date }));
-    window.location.href = "/pages/bus.html";
+    window.location.href = "./pages/bus.html";
 };
 
 // document.getElementById('search').addEventListener('click', submitSearch);
@@ -478,11 +478,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.target.classList.contains('book')) {
             if (booked_seats.length != 0) {
                 if (isLoggedIn) {
-                    window.location.href = "/pages/booking.html";
+                    window.location.href = "./pages/booking.html";
                 }
                 else {
                     alert('please login')
-                    window.location.href = "/pages/login.html";
+                    window.location.href = "./pages/login.html";
                 }
             }
             else {
@@ -659,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         alert("booking successfull")
         saveBooking(ticketDetails)
-        window.location.href = "/pages/tickets.html";
+        window.location.href = "./pages/tickets.html";
     })
 })
 
