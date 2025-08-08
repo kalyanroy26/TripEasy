@@ -112,7 +112,7 @@ let logout = () => {
     logout_btn_sm.style.display = 'none'
     isLoggedIn = false
     window.localStorage.removeItem('ticketDetails')
-    window.location.href = "./pages/login.html";
+    window.location.href = "login.html";
 
 }
 
@@ -478,11 +478,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (e.target.classList.contains('book')) {
             if (booked_seats.length != 0) {
                 if (isLoggedIn) {
-                    window.location.href = "./booking.html";
+                    window.location.href = "booking.html";
                 }
                 else {
                     alert('please login')
-                    window.location.href = "./login.html";
+                    window.location.href = "login.html";
                 }
             }
             else {
@@ -659,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         alert("booking successfull")
         saveBooking(ticketDetails)
-        window.location.href = "./pages/tickets.html";
+        window.location.href = "tickets.html";
     })
 })
 
