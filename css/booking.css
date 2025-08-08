@@ -1,0 +1,242 @@
+:root {
+  --primary-color: #1fab89;
+  --logo-color: #015551;
+  --bg-color: #fdfdfd;
+  --bg-color-2: #f7f7f7;
+  --text-color: #252525;
+  --text-color-2: #393e46;
+  --logo-font: "Lexend", "sans-serif";
+  --primary-font: "Montserrat", "Poppins", sans-serif;
+  --border-color: rgba(0, 0, 0, 0.125);
+  --image-shadow: 0px 0px 0px rgba(3, 7, 18, 0.1),
+    0px 1px 1px rgba(3, 7, 18, 0.08), 0px 1px 1px rgba(3, 7, 18, 0.06),
+    0px 3px 3px rgba(3, 7, 18, 0.04), 0px 4px 4px rgba(3, 7, 18, 0.02);
+  --image-inside-shadow: 3px -43px 23px 5px rgba(0, 0, 0, 0.67) inset;
+  --card-shadow: 0px 10px 12px rgba(0, 0, 0, 0.08),
+    -4px -4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.booking_container {
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 70vh;
+  box-shadow: var(--card-shadow);
+  color: var(--text-color-2);
+}
+
+.passenger_info {
+  /* box-shadow: var(--card-shadow); */
+  border: 1px solid var(--border-color);
+  min-height: 80vh;
+}
+
+.trip_details {
+  border: 1px solid var(--border-color);
+}
+
+.duration {
+  border: 1px solid var(--border-color);
+}
+
+.time {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+.fi-rr-bus-ticket {
+  color: var(--logo-color);
+}
+
+.shade {
+  background-color: var(--logo-color);
+  color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.fare_details {
+  border: 1px solid var(--border-color);
+  height: 55vh;
+}
+
+.cb_btn {
+  background-color: var(--logo-color);
+  color: var(--bg-color);
+  border: none;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+.contact_details {
+  border: none;
+  width: 80%;
+  padding: 1rem;
+  outline: none;
+  border-bottom: 1px solid var(--border-color);
+
+  &:focus {
+    border-bottom: 2px solid var(--logo-color);
+  }
+}
+
+.contact_details input {
+  border: none;
+  width: 90%;
+  padding: 0 0 0 1rem;
+  outline: none;
+}
+
+.passenger_form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+  gap: 1rem;
+}
+
+.seat-num {
+  color: var(--bg-color);
+  background-color: #015551;
+}
+
+/* tickets.html css */
+
+.my_bookings {
+  box-shadow: var(--card-shadow);
+  min-height: 60vh;
+}
+
+.ticket {
+  min-height: 30vh;
+  border: 1px solid var(--border-color);
+}
+
+.dt_btn {
+  background-color: #e01d48;
+  color: var(--bg-color);
+  border: none;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    transform: scale(0.95);
+  }
+}
+
+/* ticket design */
+.ticket_container {
+  display: grid;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, auto);
+  padding: 2rem;
+  gap: 0.75rem 1rem;
+  grid-template-areas:
+    ". et et ."
+    "b_title b_title travels travels"
+    "t_sep t_sep t_sep t_sep"
+    "trip trip trip trip"
+    "dep dep arv arv"
+    "p_name p_name qr qr"
+    "pass pass qr qr"
+    "dt dt qr qr";
+  align-items: center;
+}
+
+.ticket_container > * {
+  display: grid;
+  place-items: flex-start;
+  margin: 0.5rem;
+}
+
+.et {
+  grid-area: et;
+  text-align: center;
+  align-self: center;
+  place-content: center;
+}
+
+.t_icon {
+  background-color: #015551;
+  color: white;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.t_icon > i{
+  margin-top: 5px;
+}
+
+.b_title {
+  grid-area: b_title;
+  gap: 1rem;
+  place-items: center;
+}
+
+.tt_name {
+  grid-area: travels;
+  text-align: right;
+  align-self: center;
+  justify-self: end;
+}
+
+.t_sep {
+  grid-area: t_sep;
+  border-top: 1px solid var(--border-color);
+}
+
+.p_name {
+  grid-area: p_name;
+  justify-self: start;
+  text-align: left;
+}
+
+.t_trip {
+  grid-area: trip;
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.dep,
+.arv {
+  font-size: 1rem;
+}
+
+.dep {
+  grid-area: dep;
+  justify-self: start;
+  text-align: left;
+}
+
+.arv {
+  grid-area: arv;
+  justify-self: end;
+  text-align: right;
+  place-items: flex-end;
+}
+
+.pass {
+  grid-area: pass;
+  justify-self: start;
+  text-align: left;
+}
+
+.date {
+  grid-area: dt;
+  justify-self: start;
+  text-align: left;
+}
+
+.qr_code {
+  grid-area: qr;
+  justify-self: end;
+  text-align: right;
+}

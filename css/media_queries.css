@@ -1,0 +1,355 @@
+/* Extra Small (XS) */
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+
+  .logo img {
+    height: 30px;
+  }
+
+  .swap {
+    /* position: relative;
+    right: -80px; */
+    transform: none;
+  }
+
+  .reverse {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  .gap-sm-2 {
+    gap: 0.5rem;
+  }
+
+  /* route section */
+  .routes-section {
+    grid-template-columns: 100%;
+  }
+
+  /* login */
+  .form-container {
+    width: 100% !important;
+    justify-content: center;
+  }
+
+  .login-title {
+    display: none;
+  }
+
+  .form {
+    margin: 0;
+    padding: 1.5rem;
+    width: 90% !important;
+    text-align: center;
+  }
+
+  .form h3 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #333446;
+  }
+
+  .dropdown-menu {
+    inset: 0px auto auto 50px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* bus search */
+
+  .filters-container {
+    height: auto;
+  }
+
+  .filter-btn {
+    width: 23%;
+  }
+
+  .bus-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem;
+    font-size: 0.9rem;
+    gap: 1rem;
+  }
+
+  .bus-card > * {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  .b-ticket {
+    height: 40px;
+    width: 10%;
+    margin-bottom: 0.5rem;
+  }
+
+  .b-name {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .duration,
+  .b-price,
+  .rating,
+  .amenties,
+  .seat-btn {
+    justify-content: space-between;
+  }
+
+  .b-price {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin-top: 1rem;
+  }
+
+  .amenties {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .seats_container {
+    display: none;
+    overflow: auto;
+    width: 100% !important;
+    /* flex-wrap: wrap; */
+
+    justify-content: flex-start;
+  }
+
+  .show {
+    display: flex !important;
+  }
+
+  .seats {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: flex-start;
+  }
+
+  .seat {
+    width: 45px;
+    height: auto;
+    padding: 0.3rem;
+  }
+
+  .book {
+    width: 40%;
+    align-self: flex-end;
+    font-size: 1.5rem;
+    display: none;
+    justify-content: center;
+    text-align: center;
+  }
+
+  /* booking container */
+  .booking_container {
+    flex-direction: column !important;
+    gap: 2rem;
+  }
+
+  .passenger_info,
+  .fare_details {
+    width: 100% !important;
+    padding: 1rem !important;
+  }
+
+  .trip_details {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .trip {
+    flex-direction: column;
+    align-items: flex-start !important;
+    gap: 0.5rem;
+  }
+
+  .duration {
+    margin: 0.5rem 0;
+    align-self: center;
+  }
+
+  .shade {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
+  .passenger_form .d-flex {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .passenger_form input,
+  .passenger_form select {
+    width: 100% !important;
+  }
+
+  .seat-num {
+    width: fit-content;
+  }
+
+  .cb_btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .fare_details select {
+    width: 100%;
+  }
+
+  /* ticket */
+  .ticket_container {
+    max-width: 500px; /* reduce width */
+    padding: 1rem; /* smaller padding */
+    font-size: 0.9rem; /* smaller text */
+    gap: 0.5rem 0.75rem;
+  }
+
+  .t_trip{
+    padding: 0 !important;
+  }
+
+  .ticket_container .fs-2 {
+    font-size: 1.5rem !important; /* E-Ticket title */
+  }
+
+  .ticket_container .fs-4 {
+    font-size: 1.2rem !important; /* City names and times */
+  }
+
+  .ticket_container .fs-5 {
+    font-size: 1rem !important;
+  }
+
+  .ticket_container .duration {
+    font-size: 0.9rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .ticket_container .t_icon {
+    height: 25px;
+    font-size: 1rem;
+  }
+
+  #qr-code{
+    height: 100px !important;
+  }
+
+  #downloadTicket{
+    width: 40% !important;
+  }
+
+  .footer-section {
+    width: 90%;
+    font-size: 1rem;
+    text-wrap: balance;
+    height: auto;
+    padding: 1rem 0;
+  }
+
+  .footer__top {
+    gap: 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .footer__logo {
+    text-align: left;
+    line-height: 1.5;
+    gap: 1rem;
+  }
+
+  .news,
+  .subscribe__btn,
+  .f-menu {
+    display: none;
+  }
+
+  .footer__bottom {
+    flex-wrap: wrap-reverse;
+    gap: 1rem;
+    column-gap: 4rem;
+    justify-content: center;
+  }
+
+  .social__links img {
+    height: 22px;
+  }
+}
+
+/* Small (SM) */
+@media (min-width: 481px) and (max-width: 768px) {
+  html {
+    font-size: 12px;
+  }
+
+  .logo img {
+    height: 35px;
+  }
+  /* 
+  .swap{
+    text-align: right;
+    transform: none;
+  } */
+
+  .gap-sm-2 {
+    gap: 0.5rem;
+  }
+
+  /* bus search */
+
+  .filters-container {
+    height: auto;
+  }
+
+  .filter-btn {
+    width: 23%;
+  }
+
+  .seat {
+    width: 45px;
+    height: auto;
+    padding: 0.3rem;
+  }
+}
+
+/* Medium (MD) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  html {
+    font-size: 12px;
+  }
+
+  .swap {
+    position: relative;
+    /* transform: rotate(90deg); */
+    transform: none;
+  }
+
+  .gap-sm-2 {
+    gap: 0.5rem;
+  }
+
+  /* bus search */
+
+  .seat {
+    width: 45px;
+    height: auto;
+    padding: 0.3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .description p {
+    -webkit-line-clamp: 5;
+    overflow: hidden;
+  }
+}

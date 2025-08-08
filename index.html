@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TripEasy</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/logo.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/media_queries.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css"
+    />
+  </head>
+  <body>
+    <!-- main container -->
+    <div
+      class="container-fluid my-container col-lg-12 px-0 d-flex flex-column align-items-center"
+    >
+      <!-- navbar section -->
+      <nav class="navbar my-nav navbar-expand-sm w-80 px-3">
+        <!-- Logo -->
+        <div class="logo col-4 col-sm-4 col-xl-4 d-flex align-items-center">
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="./assets/icons/logo.png"
+              alt="TripEasy"
+              height="30"
+              class="me-2"
+            />
+            <span class="logo-title fs-2 fw-bold">TripEasy</span>
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <ul
+          class="my-nav-menu col-8 col-sm-8 col-xl-8 d-none d-sm-flex justify-content-evenly list-unstyled m-0"
+        >
+          <li class="nav-item">
+            <a href="../index.html" class="nav__link nav-link-style">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="./pages/tickets.html" class="nav__link nav-link-style"
+            >Bookings</a
+            >
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav__link nav-link-style">Help</a>
+          </li>
+          <!-- Account Dropdown -->
+          <li class="account-menu dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="accountDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Account
+            </a>
+
+            <ul
+              class="dropdown-menu nav__link"
+              aria-labelledby="accountDropdown"
+            >
+              <li>
+                <a class="dropdown-item" href="./pages/login.html">Log In</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="./pages/register.html"
+                  >Sign Up</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- User Info -->
+          <li class="nav-item">
+            <a href="#" class="nav__link d-flex align-items-center gap-3"
+              ><i class="fi fs-2 fi-rr-circle-user mt-1"></i
+              ><span id="current_user">Hello Guest</span></a
+            >
+          </li>
+          <!-- Logout Button -->
+          <li class="nav-item">
+            <button class="btn" id="logout_btn">Log Out</button>
+          </li>
+        </ul>
+
+        <ul
+          id="mobileMenu"
+          class="mobile-nav d-flex flex-column d-sm-none p-3 gap-3 d-none"
+        >
+          <li>
+            <a href="../index.html" class="nav__link nav-link-style">Home</a>
+          </li>
+          <li><a href="#" class="nav__link nav-link-style">Help</a></li>
+          <li>
+            <a href="./pages/tickets.html" class="nav__link nav-link-style"
+              >Bookings</a
+            >
+          </li>
+          <li>
+            <a href="./pages/login.html" class="nav__link nav-link-style"
+              >Log In</a
+            >
+          </li>
+          <li>
+            <a href="./pages/register.html" class="nav__link nav-link-style"
+              >Sign Up</a
+            >
+          </li>
+          <div ><hr class="dropdown_divider"></div>
+          <span id="current_user_sm">Hello Guest</span>
+          <li class="nav-item">
+            <button class="btn logout_btn_sm" id="logout_btn_sm">Log Out</button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- hero section -->
+      <section
+        class="row hero-section col-12 w-80 col-lg-11 mt-4 d-flex align-items-center justify-content-center"
+      >
+        <div id="tagline" class="tagline mb-4 text-center">
+          <span>Make </span>
+          <span>every </span>
+          <span>journey </span>
+          <span>easy </span>
+          <span>with </span>
+          <span>TripEasy</span>
+        </div>
+        <div
+          class="search-container container col-11 rounded-4 d-flex flex-column align-items-center p-4 mt-5"
+        >
+          <div
+            class="row justify-content-evenly align-items-center w-100 d-flex flex-column flex-md-row gap-sm-2"
+          >
+            <div
+              class="field col-10 col-lg-3 rounded-3 fs-5 px-3 d-flex align-items-center"
+            >
+              <i class="fi fi-rr-person-luggage me-3"></i>
+              <div class="dropdown">
+                <input
+                  type="text"
+                  class="search_form shadow-none rounded-3"
+                  placeholder="From "
+                  id="from"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+
+                <ul id="places" class="dropdown-menu dd-menu dropstart">
+                  <li class="dropdown-item">Hyderabad</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Mumbai</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Bangalore</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Pune</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Chennai</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Coimbatore</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Bhopal</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Jaipur</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Nagpur</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-auto col-md-2 col-lg-1 btn swap">
+              <i class="fi fi-rr-swap fs-4" id="swap"></i>
+            </div>
+
+            <div
+              class="field col-10 col-lg-3 rounded-3 fs-5 px-3 d-flex align-items-center"
+            >
+              <i class="fi fi-rr-person-luggage me-3"></i>
+              <div class="dropdown">
+                <input
+                  type="text"
+                  class="search_form shadow-none rounded-3"
+                  placeholder="To "
+                  id="to"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+
+                <ul id="places" class="dropdown-menu dd-menu dropstart">
+                  <li class="dropdown-item">Mumbai</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Hyderabad</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Bangalore</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Pune</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Chennai</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Coimbatore</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Delhi</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Nagpur</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Bhopal</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Jaipur</li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="field col-10 col-lg-2 rounded-3 fs-5 d-flex align-items-center px-3"
+            >
+              <i class="fi fi-rr-calendar-day me-3"></i>
+              <input
+                type="text"
+                id="datepicker"
+                placeholder="Date"
+                class="form-control shadow-none"
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </div>
+
+            <button
+              type="button"
+              class="search__button rounded-5 col-6 col-md-2"
+              id="search"
+            >
+              Search Buses
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- offers section -->
+      <h1 class="section-title">Exciting Offers For New Users</h1>
+      <section class="offers-section">
+        <div class="offer__card rounded-3">
+          <img
+            src="./assets/illustrations/code-1.svg"
+            loading="lazy"
+            alt="flexible"
+          />
+          <div class="offer__details rounded-2">
+            <p><b>New User Offer:</b> Get ₹100 OFF on your first booking</p>
+            <h4 class="btn btn-success">Use code: <b>WELCOME100</b></h4>
+          </div>
+        </div>
+
+        <div class="offer__card rounded-3">
+          <img
+            src="./assets/illustrations/code-2.svg"
+            loading="lazy"
+            alt="flexible"
+          />
+          <div class="offer__details rounded-2">
+            <p><b>Last Minute Deal:</b> Save 10% on bookings on same day!</p>
+            <h4 class="btn btn-success">Use code: <b>SAMEDAY10</b></h4>
+          </div>
+        </div>
+
+        <div class="offer__card rounded-3">
+          <img
+            src="./assets/illustrations/code-3.svg"
+            loading="lazy"
+            alt="flexible"
+          />
+          <div class="offer__details rounded-2">
+            <p><b>Group Booking Special:</b> Get 15% off for 4+ tickets!</p>
+            <h4 class="btn btn-success">Use code: <b>BOOKFORMORE</b></h4>
+          </div>
+        </div>
+
+        <div class="offer__card rounded-3">
+          <img
+            src="./assets/illustrations/code-4.svg"
+            loading="lazy"
+            alt="flexible"
+            class="code-4"
+          />
+          <div class="offer__details rounded-2">
+            <p><b>Traveller Perks: </b>Collect points and redeem discounts.</p>
+            <h4 class="btn btn-success"><b>COLLECT NOW</b></h4>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features section -->
+      <h1 class="section-title">Travel Made Easy with Our Top Features</h1>
+      <section class="features-section container">
+        <!-- feature card-1 -->
+        <div class="feature__card rounded-3 row align-items-center">
+          <div class="col-md-4 col-12 mb-3 mb-md-0">
+            <img src="./assets/illustrations/feature1.svg" alt="feature1" />
+          </div>
+          <div class="description col-11 col-md-8">
+            <h2 class="mb-4">Book Bus Tickets at the Lowest Fare</h2>
+            <p>
+              TripEasy is India's trusted platform for seamless online bus
+              ticket booking. Discover budget-friendly travel options, unlock
+              exclusive discount coupons, and enjoy the convenience of booking
+              your bus tickets at the lowest prices. Compare fares, check
+              real-time schedules, and access all the information you need to
+              plan a smooth and comfortable journey—whether by bus or train.
+              <br />
+              <br />
+              At TripEasy, we've simplified the entire online bus booking
+              process to help you travel smarter. Need to change your travel
+              dates or cancel a ticket? Choose our TripCash refund option and
+              get instant credit to rebook anytime without hassle—saving both
+              your time and money.
+              <br />
+              <br />
+              Explore your route options using our advanced filters and find
+              reliable, comfortable travel choices that are tailored perfectly
+              to your schedule. Start your journey with TripEasy today—fast,
+              simple, and stress-free!
+            </p>
+          </div>
+        </div>
+
+        <!-- feature card-2 -->
+        <div class="feature__card rounded-3 row align-items-center reverse">
+          <div class="description col-11 col-md-8">
+            <h2 class="mb-4">Wide Range of Buses</h2>
+            <p>
+              From luxury coaches to budget-friendly rides, TripEasy offers a
+              wide range of bus options to suit every traveler's needs. Choose
+              from AC, Non-AC, Sleeper, Seater, Volvo, Mini, Deluxe, and more.
+              <br /><br />
+              Whether you're planning a short commute or a long-distance
+              journey, you'll find the perfect bus with comfortable seating,
+              trusted operators, and convenient boarding points — all in one
+              place.
+            </p>
+          </div>
+          <div class="col-md-4 col-12 mb-3 mb-md-0">
+            <img src="./assets/illustrations/feature2.svg" alt="feature1" />
+          </div>
+        </div>
+
+        <!-- feature card-3 -->
+        <div class="feature__card rounded-3 row align-items-center">
+          <div class="col-md-4 col-12 mb-3 mb-md-0">
+            <img src="./assets/illustrations/feature3.svg" alt="feature1" />
+          </div>
+          <div class="description col-11 col-md-8">
+            <h2 class="mb-4">Safe & Secure Payments</h2>
+            <p>
+              our safety is our priority — both on the road and online. TripEasy
+              ensures 100% secure and encrypted transactions, so you can book
+              your tickets with confidence. <br />
+              <br />Choose from a variety of payment options including UPI,
+              cards, wallets, and net banking. With instant confirmations and
+              reliable payment gateways, your booking experience is as smooth
+              and secure as your journey.
+            </p>
+          </div>
+        </div>
+        <!-- feature card-4 -->
+        <div class="feature__card rounded-3 row align-items-center reverse">
+          <div class="description col-11 col-md-8">
+            <h2 class="mb-4">24/7 Customer Support</h2>
+            <p>
+              At TripEasy, we believe your journey should come with peace of
+              mind. That's why our dedicated customer support team is available
+              24/7 to assist you at every step. Whether it's help with booking,
+              cancellations, refunds, or last-minute travel changes
+              <br />
+              <br />
+              our team is always just a call or message away. Travel with
+              confidence knowing that real-time assistance is always within
+              reach.
+            </p>
+          </div>
+          <div class="col-md-4 col-12 mb-3 mb-md-0">
+            <img src="./assets/illustrations/feature4.svg" alt="feature1" />
+          </div>
+        </div>
+      </section>
+
+      <!-- popular routes -->
+      <h1 class="section-title">Popular Routes</h1>
+      <section class="routes-section container">
+        <div
+          class="route__card col-12 d-flex align-items-center justify-content-md-around justify-content-start p-3 rounded-3"
+        >
+          <img
+            src="./assets/routes/hyderabad.webp"
+            class="route__img rounded-3"
+            alt="Hyderabad"
+          />
+
+          <div class="route__info text-center mx-3 my-2">
+            <span class="d-block">Hyderabad</span>
+            <span class="d-flex justify-content-center align-items-center my-1">
+              <i class="fi fi-rr-arrow-right"></i>
+            </span>
+            <span class="d-block">Bangalore</span>
+          </div>
+
+          <button class="view_bus_btn rounded-3 px-3 py-2 d-none d-md-block">
+            View Buses
+          </button>
+        </div>
+        <div
+          class="route__card col-12 d-flex align-items-center justify-content-md-around justify-content-start p-3 rounded-3"
+        >
+          <img
+            src="./assets/routes/delhi.webp"
+            class="route__img rounded-3"
+            alt="delhi"
+          />
+
+          <div class="route__info text-center mx-3 my-2">
+            <span class="d-block">Delhi</span>
+            <span class="d-flex justify-content-start align-items-center my-1">
+              <i class="fi fi-rr-arrow-right"></i>
+            </span>
+            <span class="d-block">Jaipur</span>
+          </div>
+
+          <button class="view_bus_btn rounded-3 px-3 py-2 d-none d-md-block">
+            View Buses
+          </button>
+        </div>
+        <div
+          class="route__card col-12 d-flex align-items-center justify-content-md-around justify-content-start p-3 rounded-3"
+        >
+          <img
+            src="./assets/routes/mumbai.webp"
+            class="route__img rounded-3"
+            alt="mumbai"
+          />
+
+          <div class="route__info text-center mx-3 my-2">
+            <span class="d-block">Mumbai</span>
+            <span class="d-flex justify-content-center align-items-center my-1">
+              <i class="fi fi-rr-arrow-right"></i>
+            </span>
+            <span class="d-block">Pune</span>
+          </div>
+
+          <button class="view_bus_btn rounded-3 px-3 py-2 d-none d-md-block">
+            View Buses
+          </button>
+        </div>
+        <div
+          class="route__card col-12 d-flex align-items-center justify-content-md-around justify-content-start p-3 rounded-3"
+        >
+          <img
+            src="./assets/routes/chennai.webp"
+            class="route__img rounded-3"
+            alt="chennai"
+          />
+
+          <div class="route__info text-center mx-3 my-2">
+            <span class="d-block">Chennai</span>
+            <span class="d-flex justify-content-center align-items-center my-1">
+              <i class="fi fi-rr-arrow-right"></i>
+            </span>
+            <span class="d-block">Coimbatore</span>
+          </div>
+
+          <button class="view_bus_btn rounded-3 px-3 py-2 d-none d-md-block">
+            View Buses
+          </button>
+        </div>
+        <div
+          class="route__card col-12 d-flex align-items-center justify-content-md-around justify-content-start p-3 rounded-3"
+        >
+          <img
+            src="./assets/routes/Tirupathi.webp"
+            class="route__img rounded-3"
+            alt="Tirupathis"
+          />
+
+          <div class="route__info text-center mx-3 my-2">
+            <span class="d-block">Bangalore</span>
+            <span class="d-flex justify-content-center align-items-center my-1">
+              <i class="fi fi-rr-arrow-right"></i>
+            </span>
+            <span class="d-block">Tirupathi</span>
+          </div>
+
+          <button class="view_bus_btn rounded-3 px-3 py-2 d-none d-md-block">
+            View Buses
+          </button>
+        </div>
+        <div
+          class="route__card col-12 d-flex align-items-center justify-content-md-around justify-content-start p-3 rounded-3"
+        >
+          <img
+            src="./assets/routes/pune.webp"
+            class="route__img rounded-3"
+            alt="pune"
+          />
+
+          <div class="route__info text-center mx-3 my-2">
+            <span class="d-block">Pune</span>
+            <span class="d-flex justify-content-center align-items-center my-1">
+              <i class="fi fi-rr-arrow-right"></i>
+            </span>
+            <span class="d-block">Nagpur</span>
+          </div>
+
+          <button class="view_bus_btn rounded-3 px-3 py-2 d-none d-md-block">
+            View Buses
+          </button>
+        </div>
+      </section>
+
+      <footer class="footer-section w-100 rounded-2">
+        <!-- Top Section -->
+        <div class="footer__top">
+          <!-- Logo Section -->
+          <div class="logo footer__logo">
+            <div class="f__logo">
+              <img
+                src="./assets/icons/logo.png"
+                class="logo__icon"
+                alt="TripEasy"
+                height="50"
+                loading="lazy"
+              />
+              <a href="./index.html"
+                ><span class="logo-title fs-2 fw-bold">TripEasy</span></a
+              >
+            </div>
+            <div class="news">
+              <p>
+                Subscribe to our newsletter for the latest travel deals,
+                exclusive discounts, and destination inspiration straight to
+                your inbox.
+              </p>
+            </div>
+            <button class="subscribe__btn search__button">Subscribe</button>
+          </div>
+
+          <!-- Newsletter Section -->
+
+          <!-- Menu Section -->
+          <div class="footer__menu1 f-menu">
+            <h2>Company</h2>
+            <ul>
+              <li>About</li>
+              <li>Jobs</li>
+              <li>Trust & Safety</li>
+              <li>Join as Member</li>
+            </ul>
+          </div>
+          <div class="footer__menu2 f-menu">
+            <h2>Quick Links</h2>
+            <ul>
+              <li>Home</li>
+              <li>Book</li>
+              <li>Explore</li>
+              <li>Contact Us</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="footer__bottom">
+          <div class="copyright">
+            &copy; 2025 TripEasy. All rights reserved.
+          </div>
+          <div class="terms">
+            <span>Terms & Conditions</span>
+            <span><pre style="display: inline-block"></pre></span>
+            <span>Privacy Policy</span>
+          </div>
+          <div class="social__links">
+            <span
+              ><img src="./assets/icons/x.png" loading="lazy" alt="x"
+            /></span>
+            <span
+              ><img src="./assets/icons/insta.png" loading="lazy" alt="insta"
+            /></span>
+            <span
+              ><img
+                src="./assets/icons/facebook.png"
+                loading="lazy"
+                alt="facebook"
+            /></span>
+            <span
+              ><img
+                src="./assets/icons/youtube.png"
+                loading="lazy"
+                alt="youtube"
+            /></span>
+            <span
+              ><img
+                src="./assets/icons/pinterest.png"
+                loading="lazy"
+                alt="pinterest"
+            /></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./script.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
+    <script>
+      new Pikaday({
+        field: document.getElementById("datepicker"),
+        format: "DD/MM/YYYY",
+        onSelect: function (date) {
+          // console.log("Selected date:", date.toDateString());
+        },
+      });
+    </script>
+
+    <script>
+      const hamBtn = document.querySelector(".navbar-toggler");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      hamBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("d-none");
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.11.0/dist/axios.min.js"></script>
+  </body>
+</html>

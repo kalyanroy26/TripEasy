@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TripEasy</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/icons/logo.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/buses.css" />
+    <link rel="stylesheet" href="../css/media_queries.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn-uicons.flaticon.com/3.0.0/uicons-regular-rounded/css/uicons-regular-rounded.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css"
+    />
+  </head>
+  <body>
+    <!-- main container -->
+    <div
+      class="container-fluid my-container col-lg-12 px-0 d-flex flex-column align-items-center"
+    >
+      <!-- navbar section -->
+      <nav class="navbar my-nav navbar-expand-sm w-80 px-3">
+        <!-- Logo -->
+        <div class="logo col-4 col-sm-4 col-xl-4 d-flex align-items-center">
+          <a class="navbar-brand d-flex align-items-center" href="#">
+            <img
+              src="../assets/icons/logo.png"
+              alt="TripEasy"
+              height="30"
+              class="me-2"
+            />
+            <span class="logo-title fs-2 fw-bold">TripEasy</span>
+          </a>
+        </div>
+
+        <!-- Hamburger Button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNavbar"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Menu -->
+        <ul
+          class="my-nav-menu col-8 col-sm-8 col-xl-8 d-none d-sm-flex justify-content-evenly list-unstyled m-0"
+        >
+          <li class="nav-item">
+            <a href="../index.html" class="nav__link nav-link-style">Home</a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav__link nav-link-style">Help</a>
+          </li>
+          <li class="nav-item">
+            <a href="../pages/tickets.html" class="nav__link nav-link-style"
+              >Bookings</a
+            >
+          </li>
+          <!-- Account Dropdown -->
+          <li class="account-menu dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="accountDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Account
+            </a>
+
+            <ul
+              class="dropdown-menu nav__link"
+              aria-labelledby="accountDropdown"
+            >
+              <li>
+                <a class="dropdown-item" href="../pages/login.html">Log In</a>
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" href="../pages/register.html"
+                  >Sign Up</a
+                >
+              </li>
+            </ul>
+          </li>
+          <!-- User Info -->
+          <li class="nav-item">
+            <a href="#" class="nav__link d-flex align-items-center gap-3"
+              ><i class="fi fs-2 fi-rr-circle-user mt-1"></i
+              ><span id="current_user">Hello Guest</span></a
+            >
+          </li>
+          <!-- Logout Button -->
+          <li class="nav-item">
+            <button class="btn" id="logout_btn">Log Out</button>
+          </li>
+        </ul>
+
+        <ul
+          id="mobileMenu"
+          class="mobile-nav d-flex flex-column d-sm-none p-3 gap-3 d-none"
+        >
+          <li>
+            <a href="../index.html" class="nav__link nav-link-style">Home</a>
+          </li>
+          <li>
+            <a href="./pages/tickets.html" class="nav__link nav-link-style"
+            >Bookings</a
+            >
+          </li>
+          <li><a href="#" class="nav__link nav-link-style">Help</a></li>
+          <li>
+            <a href="../pages/login.html" class="nav__link nav-link-style"
+              >Log In</a
+            >
+          </li>
+          <li>
+            <a href="../pages/register.html" class="nav__link nav-link-style"
+              >Sign Up</a
+            >
+          </li>
+          <div ><hr class="dropdown_divider"></div>
+          <span id="current_user_sm">Hello Guest</span>
+          <li class="nav-item">
+            <button class="btn logout_btn_sm" id="logout_btn_sm">Log Out</button>
+          </li>
+        </ul>
+      </nav>
+
+      <!-- hero section -->
+      <section
+        class="row bus-page-search rounded-3 col-12 w-80 col-lg-11 mt-4 d-flex align-items-center justify-content-center"
+      >
+        <div
+          class="search-container container col-11 rounded-4 d-flex flex-column align-items-center p-4 mt-5"
+        >
+          <div
+            class="row justify-content-evenly align-items-center w-100 d-flex flex-column flex-md-row gap-sm-2"
+          >
+            <div
+              class="field col-10 col-lg-3 rounded-3 fs-5 px-3 d-flex align-items-center"
+            >
+              <i class="fi fi-rr-person-luggage me-3"></i>
+              <div class="dropdown">
+                <input
+                  type="text"
+                  class="search_form shadow-none rounded-3"
+                  placeholder="From "
+                  id="from"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+
+                <ul id="places" class="dropdown-menu dropstart dd-menu">
+                  <li class="dropdown-item">Hyderabad</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Mumbai</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Bangalore</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Pune</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Chennai</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Coimbatore</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Bhopal</li>
+                  <li><hr class="dropdown-divider" /></li>
+
+                  <li class="dropdown-item">Jaipur</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  
+                  <li class="dropdown-item">Nagpur</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="col-auto col-md-2 col-lg-1 btn swap">
+              <i class="fi fi-rr-swap fs-4" id="swap"></i>
+            </div>
+
+            <div
+              class="field col-10 col-lg-3 rounded-3 fs-5 px-3 d-flex align-items-center"
+            >
+              <i class="fi fi-rr-person-luggage me-3"></i>
+              <div class="dropdown">
+                <input
+                  type="text"
+                  class="search_form shadow-none rounded-3"
+                  placeholder="To "
+                  id="to"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                  autocomplete="off"
+                  spellcheck="false"
+                />
+
+                <ul id="places" class="dropdown-menu dropstart dd-menu">
+                  <li class="dropdown-item">Mumbai</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Hyderabad</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Bangalore</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Pune</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Chennai</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Coimbatore</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Delhi</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Nagpur</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Bhopal</li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li class="dropdown-item">Jaipur</li>
+                </ul>
+              </div>
+            </div>
+
+            <div
+              class="field col-10 col-lg-2 rounded-3 fs-5 d-flex align-items-center px-3"
+            >
+              <i class="fi fi-rr-calendar-day me-3"></i>
+              <input
+                type="text"
+                id="datepicker"
+                placeholder="Date"
+                class="form-control shadow-none"
+                autocomplete="off"
+                spellcheck="false"
+              />
+            </div>
+
+            <button
+              type="button"
+              class="search__button rounded-5 col-6 col-md-2"
+              id="search"
+            >
+              Search Buses
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- search buses section -->
+      <section
+        class="row col-12 col-lg-11 mx-auto my-3 p-3 d-flex flex-column flex-lg-row gap-3 searched_buses_section rounded-3"
+
+      >
+        <span id="no_of_buses" class="text-center fs-3 fw-bold py-2"
+          >31 buses found</span
+        >
+        <div class="line mb-3"></div>
+
+        <div class="filters-container col-12 col-lg-2 rounded-3 p-2 text-center align-items-center">
+          <div class="filter-card d-flex flex-column rounded-3 p-2">
+            <h3>Filter</h3>
+            <div class="line col-12"></div>
+            <div
+              class="filters mt-2 d-flex justify-content-center gap-2 align-items-center flex-wrap"
+            >
+              <button
+                id="filter-ac"
+                class="btn filter-btn rounded-2 d-flex flex-column align-items-center"
+              >
+                <span
+                  ><svg
+                    width="1.5rem"
+                    height="1.5rem"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="color: currentcolor"
+                  >
+                    <path
+                      d="M2.45307 3.55551C2.74598 3.26281 3.22078 3.26268 3.51362 3.55551L4.40912 4.45102C4.44198 4.50954 4.48043 4.56627 4.53022 4.61606L19.5312 19.617C19.6922 19.9029 19.6543 20.2701 19.4111 20.5135C19.1182 20.8064 18.6434 20.8063 18.3505 20.5135L15.9033 18.0663C15.8707 18.189 15.8106 18.3066 15.7148 18.4032C15.4231 18.697 14.9482 18.6986 14.6542 18.4071L12.748 16.5155V19.2498C12.7478 19.6639 12.412 19.9998 11.998 19.9998C11.5839 19.9998 11.2482 19.6639 11.248 19.2498V16.5799L9.41694 18.4051C9.12366 18.6976 8.64889 18.6974 8.35639 18.4041C8.06406 18.1109 8.06513 17.636 8.35834 17.3436L11.248 14.4618V13.411L10.8671 13.0301H9.59662L6.65717 15.992C6.36547 16.286 5.89066 16.2885 5.59662 15.9969C5.30264 15.7052 5.30112 15.2304 5.59272 14.9364L7.48432 13.0301H4.74994C4.33587 13.0301 4.00015 12.6941 3.99994 12.2801C3.99994 11.8659 4.33574 11.5301 4.74994 11.5301H7.41987L5.59369 9.69907C5.30142 9.40578 5.30245 8.93096 5.59565 8.63852C5.77924 8.45556 6.03389 8.38692 6.27045 8.43344L2.45307 4.61606C2.16018 4.32317 2.16018 3.84841 2.45307 3.55551ZM17.0615 8.64047C17.3539 8.34725 17.8287 8.34617 18.122 8.63852C18.4152 8.93093 18.4162 9.40577 18.124 9.69907L16.2978 11.5301H19.2499C19.6642 11.5301 19.9999 11.8659 19.9999 12.2801C19.9997 12.6942 19.664 13.0301 19.2499 13.0301H16.2333L18.1249 14.9364C18.4165 15.2304 18.415 15.7052 18.121 15.9969C18.106 16.0119 18.0892 16.0245 18.0732 16.0379L13.5654 11.5301H14.1796L17.0615 8.64047ZM11.998 3.99985C12.4121 3.99993 12.748 4.33568 12.748 4.74985V7.76547L14.6542 5.87485C14.9483 5.5831 15.423 5.58473 15.7148 5.87876C16.0064 6.17274 16.0047 6.64757 15.7109 6.9393L12.748 9.87876V10.7127L8.18451 6.14926C8.22066 6.05005 8.27697 5.95643 8.35639 5.8768C8.6489 5.58358 9.12465 5.58333 9.41791 5.87583L11.248 7.702V4.74985C11.248 4.33564 11.5838 3.99985 11.998 3.99985Z"
+                      fill="currentColor"
+                    ></path>
+                  </svg>
+                </span>
+                <span>AC</span>
+              </button>
+              <button
+                id="filter-sleeper"
+                class="btn filter-btn d-flex flex-column align-items-center rounded-2"
+              >
+                <span
+                  ><svg
+                    width="1.5rem"
+                    height="1.5rem"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="color: currentcolor"
+                  >
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M5.44171 7.74387C5.44171 7.05506 6.00233 6.49666 6.69389 6.49666H17.2748C17.9663 6.49666 18.5269 7.05506 18.5269 7.74388V11.3416C18.5269 11.3674 18.5282 11.393 18.5308 11.4182H15.7095V10.706C15.7095 9.19061 14.4762 7.96214 12.9548 7.96214H11.0139C9.49246 7.96214 8.2591 9.19061 8.2591 10.706V11.4182H5.43782C5.44039 11.393 5.44171 11.3674 5.44171 11.3416V7.74387ZM20.0295 11.3416C20.0295 11.4235 20.0163 11.5023 19.9919 11.576C20.596 11.8517 21.0156 12.4592 21.0156 13.1643V16.7225V18.2517C21.0156 18.665 20.6793 19 20.2643 19C19.8494 19 19.513 18.665 19.513 18.2517V17.4708H4.51823V18.2517C4.51823 18.665 4.18186 19 3.76693 19C3.352 19 3.01562 18.665 3.01562 18.2517V16.7225V13.1643C3.01562 12.4802 3.41056 11.8881 3.98571 11.6016C3.95557 11.5206 3.9391 11.433 3.9391 11.3416V7.74387C3.9391 6.22847 5.17246 5 6.69389 5H17.2748C18.7962 5 20.0295 6.22848 20.0295 7.74388V11.3416ZM19.513 13.1643V15.9742H4.51823V13.1643C4.51823 13.0265 4.63036 12.9149 4.76867 12.9149H19.2626C19.4009 12.9149 19.513 13.0265 19.513 13.1643ZM9.76171 10.706C9.76171 10.0172 10.3223 9.4588 11.0139 9.4588H12.9548C13.6463 9.4588 14.2069 10.0172 14.2069 10.706V11.2984H9.76171V10.706Z"
+                      fill="currentColor"
+                    ></path></svg></span
+                ><span>Sleeper</span>
+              </button>
+              <button
+                id="filter-nonac"
+                class="btn d-flex flex-column align-items-center filter-btn rounded-2"
+              >
+                <span
+                  ><svg
+                    width="1.5rem"
+                    height="1.5rem"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="color: currentcolor"
+                  >
+                    <path
+                      d="M2.45307 3.55551C2.74598 3.26281 3.22078 3.26268 3.51362 3.55551L4.40912 4.45102C4.44198 4.50954 4.48043 4.56627 4.53022 4.61606L19.5312 19.617C19.6922 19.9029 19.6543 20.2701 19.4111 20.5135C19.1182 20.8064 18.6434 20.8063 18.3505 20.5135L15.9033 18.0663C15.8707 18.189 15.8106 18.3066 15.7148 18.4032C15.4231 18.697 14.9482 18.6986 14.6542 18.4071L12.748 16.5155V19.2498C12.7478 19.6639 12.412 19.9998 11.998 19.9998C11.5839 19.9998 11.2482 19.6639 11.248 19.2498V16.5799L9.41694 18.4051C9.12366 18.6976 8.64889 18.6974 8.35639 18.4041C8.06406 18.1109 8.06513 17.636 8.35834 17.3436L11.248 14.4618V13.411L10.8671 13.0301H9.59662L6.65717 15.992C6.36547 16.286 5.89066 16.2885 5.59662 15.9969C5.30264 15.7052 5.30112 15.2304 5.59272 14.9364L7.48432 13.0301H4.74994C4.33587 13.0301 4.00015 12.6941 3.99994 12.2801C3.99994 11.8659 4.33574 11.5301 4.74994 11.5301H7.41987L5.59369 9.69907C5.30142 9.40578 5.30245 8.93096 5.59565 8.63852C5.77924 8.45556 6.03389 8.38692 6.27045 8.43344L2.45307 4.61606C2.16018 4.32317 2.16018 3.84841 2.45307 3.55551ZM17.0615 8.64047C17.3539 8.34725 17.8287 8.34617 18.122 8.63852C18.4152 8.93093 18.4162 9.40577 18.124 9.69907L16.2978 11.5301H19.2499C19.6642 11.5301 19.9999 11.8659 19.9999 12.2801C19.9997 12.6942 19.664 13.0301 19.2499 13.0301H16.2333L18.1249 14.9364C18.4165 15.2304 18.415 15.7052 18.121 15.9969C18.106 16.0119 18.0892 16.0245 18.0732 16.0379L13.5654 11.5301H14.1796L17.0615 8.64047ZM11.998 3.99985C12.4121 3.99993 12.748 4.33568 12.748 4.74985V7.76547L14.6542 5.87485C14.9483 5.5831 15.423 5.58473 15.7148 5.87876C16.0064 6.17274 16.0047 6.64757 15.7109 6.9393L12.748 9.87876V10.7127L8.18451 6.14926C8.22066 6.05005 8.27697 5.95643 8.35639 5.8768C8.6489 5.58358 9.12465 5.58333 9.41791 5.87583L11.248 7.702V4.74985C11.248 4.33564 11.5838 3.99985 11.998 3.99985Z"
+                      fill="currentColor"
+                    ></path></svg></span
+                ><span>Non-AC</span>
+              </button>
+              <button
+                id="filter-seater"
+                class="btn d-flex flex-column align-items-center filter-btn rounded-2"
+              >
+                <span
+                  ><svg
+                    width="1.5rem"
+                    height="1.5rem"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    style="color: currentcolor"
+                  >
+                    <path
+                      d="M19.7938 13.038C19.2499 12.534 18.5119 12.277 17.7748 12.335L10.8298 12.869L10.3528 10.75H17.4999C17.9138 10.75 18.2499 10.414 18.2499 10C18.2499 9.586 17.9138 9.25 17.4999 9.25H10.0149L8.89485 4.273C8.58285 3.082 7.49185 2.25 6.23985 2.25C5.98285 2.25 5.73785 2.283 5.52385 2.345C4.80785 2.539 4.21285 2.997 3.84685 3.637C3.48785 4.264 3.39585 4.994 3.58585 5.688L6.16585 15.201C6.16185 15.259 6.14885 15.315 6.14885 15.374C6.14885 16.574 7.07585 17.55 8.24885 17.654V20.001C8.24885 20.966 9.03385 21.751 9.99885 21.751H16.9989C17.9639 21.751 18.7489 20.966 18.7489 20.001V17.548C19.8439 17.215 20.6488 16.206 20.6488 14.998C20.6488 14.257 20.3368 13.543 19.7928 13.039L19.7938 13.038ZM5.03285 5.293C4.94885 4.984 4.98985 4.66 5.14885 4.381C5.31485 4.09 5.58685 3.881 5.92785 3.789C6.01785 3.763 6.12585 3.749 6.23985 3.749C6.80985 3.749 7.30485 4.12 7.43785 4.626L9.31785 12.984L8.27285 13.064C7.89185 13.093 7.54285 13.224 7.23685 13.417L5.03285 5.291V5.293ZM17.2499 20C17.2499 20.138 17.1378 20.25 16.9999 20.25H9.99985C9.86185 20.25 9.74985 20.138 9.74985 20V17.673H17.2499V20ZM17.9798 16.173H8.44985C8.00885 16.173 7.64985 15.814 7.64985 15.359C7.64985 14.943 7.97385 14.593 8.38885 14.561L17.8898 13.83C17.9208 13.828 17.9518 13.827 17.9829 13.827C18.2779 13.827 18.5559 13.936 18.7748 14.139C19.0168 14.363 19.1498 14.668 19.1498 15.004C19.1498 15.649 18.6248 16.173 17.9798 16.173Z"
+                      fill="currentColor"
+                    ></path></svg></span
+                ><span>Seater</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="search_results col" id="bus-container">
+          <div class="bus-card rounded-2 p-3">
+            <img
+              src="../assets/icons/bus-ticket.png"
+              alt="bus-ticket"
+              height="40"
+              class="b-ticket"
+            />
+            <div class="b-name d-flex flex-column align-items-center">
+              <span class="fs-5 fw-bold">Sharma Travels</span>
+              <span class="fw-medium">NightExpress</span>
+            </div>
+
+            <div class="duration d-flex gap-3 fs-5 fw-medium">
+              <div id="b-time">
+                <span>20:30 </span>
+                <br />
+                <span>Delhi</span>
+              </div>
+              <i class="fi fi-rr-arrow-right"></i>
+              <div><span>06:00 </span><br /><span>Jaipur</span></div>
+            </div>
+
+            <div class="b-price fs-5 fw-bold">
+              <span>₹899/- </span>
+              <span>Onwards</span>
+            </div>
+
+            <div class="sep"></div>
+
+            <div class="rating fs-5 fw-medium">Rating: 3.6</div>
+            <div class="amenties fs-5 d-flex gap-4">
+              <span class="fs-5 fw-medium mt-1">Amenties: </span>
+              <div class="mt-2 d-flex justify-content-evenly gap-3">
+                <i class="fi fi-rr-water-bottle"></i>
+                <i class="fi fi-rr-car-charger-bolt"></i>
+                <i class="fi fi-rr-blanket"></i>
+              </div>
+            </div>
+            <button class="seat-btn btn btn-danger" id="view_seats">
+              View Seats
+            </button>
+            <div
+              class="seats_container col-11 gap-5 justify-content-between"
+            >
+              <i class="fi fi-rr-steering-wheel fs-3"></i>
+              <div class="seats">
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn disabled-seat"
+                  style="pointer-events: none; opacity: 0.5"
+                >
+                  <span>S1</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S2</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S3</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn disabled-seat"
+                  style="pointer-events: none; opacity: 0.5"
+                >
+                  <span>S4</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S5</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S6</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn disabled-seat"
+                  style="pointer-events: none; opacity: 0.5"
+                >
+                  <span>S7</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S8</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S9</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S10</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn disabled-seat"
+                  style="pointer-events: none; opacity: 0.5"
+                >
+                  <span>S11</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S12</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S13</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn disabled-seat"
+                  style="pointer-events: none; opacity: 0.5"
+                >
+                  <span>S14</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S15</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S16</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S17</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn disabled-seat"
+                  style="pointer-events: none; opacity: 0.5"
+                >
+                  <span>S18</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#d1d5db"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S19</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+
+                <div
+                  class="seat border border-1 d-flex align-items-center rounded-2 justify-content-center p-2 btn"
+                >
+                  <span>S20</span>
+                  <svg
+                    height="40px"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    class="seat_svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M22.5 20V22C22.5 22.5523 22.0523 23 21.5 23H7.59646C6.66266 23 5.85314 22.3538 5.64619 21.4432L1.27764 2.22162C1.13542 1.59586 1.61105 1 2.25277 1H5.70799C6.17204 1 6.57512 1.31925 6.6814 1.77096L10.5 18H20.5C21.6046 18 22.5 18.8954 22.5 20Z"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M6.96729 3H8.99999C9.55228 3 10 3.44772 10 4V6L8 7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                    <path
+                      d="M13.5 14.375H9.625H7.5"
+                      stroke="#71717A"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <button class="book mt-2 rounded-2">Book</button>
+          </div>
+        </div>
+
+      </section>
+
+      <footer class="footer-section w-100 rounded-2">
+        <!-- Top Section -->
+        <div class="footer__top">
+          <!-- Logo Section -->
+          <div class="logo footer__logo">
+            <div class="f__logo">
+              <img
+                src="../assets/icons/logo.png"
+                class="logo__icon"
+                alt="TripEasy"
+                height="50"
+                loading="lazy"
+              />
+              <a href="../index.html"
+                ><span class="logo-title fs-2 fw-bold">TripEasy</span></a
+              >
+            </div>
+            <div class="news">
+              <p>
+                Subscribe to our newsletter for the latest travel deals,
+                exclusive discounts, and destination inspiration straight to
+                your inbox.
+              </p>
+            </div>
+            <button class="subscribe__btn search__button">Subscribe</button>
+          </div>
+
+          <!-- Newsletter Section -->
+
+          <!-- Menu Section -->
+          <div class="footer__menu1 f-menu">
+            <h2>Company</h2>
+            <ul>
+              <li>About</li>
+              <li>Jobs</li>
+              <li>Trust & Safety</li>
+              <li>Join as Member</li>
+            </ul>
+          </div>
+          <div class="footer__menu2 f-menu">
+            <h2>Quick Links</h2>
+            <ul>
+              <li>Home</li>
+              <li>Book</li>
+              <li>Explore</li>
+              <li>Contact Us</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div class="footer__bottom">
+          <div class="copyright">
+            &copy; 2025 TripEasy. All rights reserved.
+          </div>
+          <div class="terms">
+            <span>Terms & Conditions</span>
+            <span><pre style="display: inline-block"></pre></span>
+            <span>Privacy Policy</span>
+          </div>
+          <div class="social__links">
+            <span
+              ><img src="../assets/icons/x.png" loading="lazy" alt="x"
+            /></span>
+            <span
+              ><img src="../assets/icons/insta.png" loading="lazy" alt="insta"
+            /></span>
+            <span
+              ><img
+                src="../assets/icons/facebook.png"
+                loading="lazy"
+                alt="facebook"
+            /></span>
+            <span
+              ><img
+                src="../assets/icons/youtube.png"
+                loading="lazy"
+                alt="youtube"
+            /></span>
+            <span
+              ><img
+                src="../assets/icons/pinterest.png"
+                loading="lazy"
+                alt="pinterest"
+            /></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../script.js"></script>
+
+     <script src="https://cdn.jsdelivr.net/npm/pikaday/pikaday.js"></script>
+
+    <script>
+      new Pikaday({
+        field: document.getElementById("datepicker"),
+        format: "DD/MM/YYYY",
+        onSelect: function (date) {
+          // console.log("Selected date:", date.toDateString());
+        },
+      });
+    </script>
+
+    <script>
+      const hamBtn = document.querySelector(".navbar-toggler");
+      const mobileMenu = document.getElementById("mobileMenu");
+
+      hamBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("d-none");
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.11.0/dist/axios.min.js"></script>
+  </body>
+</html>
