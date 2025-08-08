@@ -659,7 +659,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         alert("booking successfull")
         saveBooking(ticketDetails)
-        window.location.href = "tickets.html";
+        window.location.href = "./tickets.html";
     })
 })
 
