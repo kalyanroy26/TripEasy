@@ -2,6 +2,9 @@
 
 A **responsive bus booking web application** where users can search for buses, select seats, book tickets, and download **QR code-enabled e-tickets**. Built with **HTML, CSS, JavaScript**, and a custom API using **MockAPI** & **JSON Server**.
 
+<img width="2850" height="7522" alt="kalyanroy26 github io_TripEasy_" src="https://github.com/user-attachments/assets/7238924c-e0ca-4f5b-885a-1a856f16d3a3" />
+
+
 ## 🚀 Features
 
 * 🔍 **Search Buses** by source, destination, and date.
