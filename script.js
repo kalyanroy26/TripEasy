@@ -1,5 +1,5 @@
 // authentication and authorization
-const url = "https://tripeasy-server.onrender.com"
+const url = "https://689719be250b078c2040f7fd.mockapi.io"
 
 let isLoggedIn = false
 let booked_seats = [];
@@ -42,7 +42,11 @@ let addUser = async (data) => {
         const response = await axios.post(`${url}/register`, data)
         console.log(response.data)
 
-        window.location.href = './pages/login.html'
+        if (window.location.pathname.includes("/pages/")) {
+            window.location.href = "login.html";
+        } else {
+            window.location.href = "./pages/login.html";
+        }
 
     } catch (error) {
         console.log("error: ", error.message)
@@ -112,7 +116,11 @@ let logout = () => {
     logout_btn_sm.style.display = 'none'
     isLoggedIn = false
     window.localStorage.removeItem('ticketDetails')
-    window.location.href = "login.html";
+    if (window.location.pathname.includes("/pages/")) {
+        window.location.href = "login.html";
+    } else {
+        window.location.href = "./pages/login.html";
+    }
 
 }
 
@@ -188,7 +196,12 @@ const submitSearch = () => {
     }
 
     localStorage.setItem("search_data", JSON.stringify({ from, to, date }));
-    window.location.href = "./pages/bus.html";
+
+    if (window.location.pathname.includes("/pages/")) {
+        window.location.href = "bus.html";
+    } else {
+        window.location.href = "./pages/bus.html";
+    }
 };
 
 // document.getElementById('search').addEventListener('click', submitSearch);
@@ -657,8 +670,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         localStorage.setItem('ticketDetails', JSON.stringify(ticketDetails));
 
-        alert("booking successfull")
         saveBooking(ticketDetails)
+        alert("booking successfull")
         window.location.href = "./tickets.html";
     })
 })
